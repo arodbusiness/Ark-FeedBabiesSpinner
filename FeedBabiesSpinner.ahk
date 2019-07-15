@@ -6,7 +6,7 @@ GuiN := 86
 GuiX := 0
 GuiY := 30
 
-Enabled := true
+Enabled := false
 GoSub, UpdateGUI
 
 Loop{
