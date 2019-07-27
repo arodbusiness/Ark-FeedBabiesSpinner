@@ -2,9 +2,9 @@
 #Include TransSplashText.ahk
 
 
-oVoice := ComObjCreate("SAPI.SpVoice")
-Voices := oVoice.GetVoices
-oVoice.Voice := Voices.Item(1)
+;oVoice := ComObjCreate("SAPI.SpVoice")
+;Voices := oVoice.GetVoices
+;oVoice.Voice := Voices.Item(1)
 
 GuiN := 86
 GuiX := 0
@@ -18,7 +18,8 @@ Loop{
 	if (Enabled && WinActive("ahk_class UnrealWindow") && CheckDC()){
 		EventInfo = Disconnected
 		GoSub, UpdateGUI
-		oVoice.Speak("Disconnected")
+		;oVoice.Speak("Disconnected")
+		SoundPlay, Disconnected.mp3
 		Sleep 5000
 	}
 	else
@@ -42,13 +43,13 @@ Loop{
 			GoSub, UpdateGUI
 			Sleep 500
 			X := 0.5*A_ScreenWidth
-			if (A_ScreenWidth>=1920){
+			;if (A_ScreenWidth>=1920){
 				;;;;;;1920x1080
 				Y := 0.44*A_ScreenHeight
-			}else{
+			;}else{
 				;;;;;;1680x1050
-				Y := 0.47*A_ScreenHeight
-			}
+				;Y := 0.47*A_ScreenHeight
+			;}
 			PixelGetColor, Color, %X%, %Y%
 			B := Color >> 16 & 0xFF, G := Color >> 8 & 0xFF, R := Color & 0xFF
 			if (Enabled &&WinActive("ahk_class UnrealWindow")){
