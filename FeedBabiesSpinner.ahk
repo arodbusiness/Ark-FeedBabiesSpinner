@@ -180,6 +180,10 @@ CheckDC(){
 	
 	if (Test1=1 && Test2=1 && Test3=1 && Test4=1)
 		RetVal := true
+	else if (WinExist("The UE4-ShooterGame Game has crashed and will close"))
+		RetVal := true
+	else if (!WinExist("ahk_exe ShooterGame.exe"))
+		RetVal := true
 	else
 		RetVal := false
 			
